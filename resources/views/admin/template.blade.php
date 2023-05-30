@@ -56,7 +56,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.akun') }}">
+                <a class="nav-link" href="">
                     <i class="fas fa-fw fa-user" style="color: #ffffff;"></i>
                     <span>Daftar Akun</span></a>
             </li>
@@ -78,7 +78,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.artikel') }}">
+                <a class="nav-link" href="{{ route('artikel.index') }}">
                     <i class="fas fa-th-list" style="color: #ffffff;"></i>
                     <span>Artikel</span></a>
             </li>

@@ -37,9 +37,8 @@ Route::post('/admin/laporan/{laporan}/selesai', [AdminLaporanController::class, 
 
 Route::resource('/admin/galeri', \App\Http\Controllers\AdminGaleriController::class);
 
-Route::get('admin/artikel', function(){
-    return view('admin.artikel.index');
-})-> name('admin.artikel');
+Route::resource('/admin/artikel', \App\Http\Controllers\AdminArtikelController::class);
+
 Route::get('/admin/akun', function(){
     return view('admin.akun');
 })-> name('admin.akun');
