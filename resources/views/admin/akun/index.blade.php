@@ -7,12 +7,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-0 text-gray-800">Daftar Akun</h1>
-
-        <!-- Add Button -->
-        <a href="#" class="btn btn-primary mb-4">
-            <span class="text">Tambah Data</span>
-        </a>
+        <h1 class="h3 mb-4 text-gray-800">Daftar Akun</h1>
         
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -35,7 +30,11 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td class="text-center">
-                                        <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus"></button>
+                                        @if(Auth::user()->role === 'admin')
+                                            <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus"></button>
+                                        @else
+                                            <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus" disabled></button>
+                                        @endif
                                     </td>
                                 </tr>
 
@@ -54,7 +53,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                    <form action="#" method="POST">
+                                                    <form action="{{ route('admin.akun.destroy', $user->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Ya</button>
