@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/admin', function(){
+Route::get('/admin/dashboard', function(){
     $totalLaporan = Report::count();
     $totalLaporanSelesai = Report::where('status', 'selesai diproses')->count();
-    $totalPersenLaporanSelesai = $totalLaporanSelesai / $totalLaporan * 100;
-    $totalPersenLaporanSelesai = number_format($totalPersenLaporanSelesai, 2);
+    if ($totalLaporan == 0) {
+        $totalPersenLaporanSelesai = 0;
+    } else {
+        $totalPersenLaporanSelesai = $totalLaporanSelesai / $totalLaporan * 100;
+        $totalPersenLaporanSelesai = number_format($totalPersenLaporanSelesai, 2);
+    }
     $totalLaporanDiProses = Report::where('status', 'sedang diproses')->count();
     $totalLaporanTertunda = Report::where('status', 'belum diproses')->count(); 
 
