@@ -41,7 +41,7 @@ class AdminArtikelController extends Controller
             'caption' => $request->caption,
         ]);
 
-        return redirect()->route('artikel.index')->with(['success' => 'Artikel Berhasil Dibuat!']);
+        return redirect()->route('admin.artikel.index')->with(['success' => 'Artikel Berhasil Dibuat!']);
     }
 
     public function show(string $id): View
@@ -89,7 +89,7 @@ class AdminArtikelController extends Controller
             ]);
         }
 
-        return redirect()->route('artikel.index')->with(['success' => 'Artikel Berhasil Diupdate!']);
+        return redirect()->route('admin.artikel.index')->with(['success' => 'Artikel Berhasil Diupdate!']);
     }
 
     public function destroy($id): RedirectResponse
@@ -98,6 +98,6 @@ class AdminArtikelController extends Controller
         Storage::delete('public/artikel/' . $artikel->image);
         $artikel->delete();
 
-        return redirect()->route('artikel.index')->with(['success' => 'Artikel Berhasil Dihapus!']);
+        return redirect()->route('admin.artikel.index')->with(['success' => 'Artikel Berhasil Dihapus!']);
     }
 }

@@ -39,7 +39,7 @@ class AdminGaleriController extends Controller
             'caption' => $request->caption,
         ]);
 
-        return redirect()->route('galeri.index')->with(['success' => 'Galeri Berhasil Dibuat!']);
+        return redirect()->route('admin.galeri.index')->with(['success' => 'Galeri Berhasil Dibuat!']);
     }  
 
     public function show(string $id): View
@@ -84,7 +84,7 @@ class AdminGaleriController extends Controller
             ]);
         }
 
-        return redirect()->route('galeri.index')->with(['success' => 'Galeri Berhasil Diupdate!']);
+        return redirect()->route('admin.galeri.index')->with(['success' => 'Galeri Berhasil Diupdate!']);
     }
 
     public function destroy($id): RedirectResponse
@@ -93,6 +93,6 @@ class AdminGaleriController extends Controller
         Storage::delete('public/galeri/' . $galeri->image);
         $galeri->delete();
 
-        return redirect()->route('galeri.index')->with(['success' => 'Galeri Berhasil Dihapus!']);
+        return redirect()->route('admin.galeri.index')->with(['success' => 'Galeri Berhasil Dihapus!']);
     }
 }

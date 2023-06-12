@@ -20,7 +20,7 @@
         <h1 class="h3 mb-2 text-gray-800">Daftar Galeri</h1>
 
         <!-- Add Button -->
-        <a href="{{ route('galeri.create') }}" class="btn btn-primary mb-4">
+        <a href="{{ route('admin.galeri.create') }}" class="btn btn-primary mb-4">
             <span class="text">Tambah Data</span>
         </a>
 
@@ -49,10 +49,10 @@
                                     </td>
                                     <td>{{ $galeri->caption }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('galeri.show', $galeri->id) }}" class="p-3">
+                                        <a href="{{ route('admin.galeri.show', $galeri->id) }}" class="p-3">
                                             <i class="fas fa-eye" style="color: #2E59D9"></i>
                                         </a>
-                                        <a href="{{ route('galeri.edit', $galeri->id) }}" class="p-3">
+                                        <a href="{{ route('admin.galeri.edit', $galeri->id) }}" class="p-3">
                                             <i class="fas fa-edit" style="color: #F4B619;"></i>
                                         </a>
                                         <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus"></button>
@@ -74,7 +74,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                    <form action="{{ route('galeri.destroy', $galeri->id) }}" method="POST">
+                                                    <form action="{{ route('admin.galeri.destroy', $galeri->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Ya</button>
