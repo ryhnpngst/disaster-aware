@@ -19,6 +19,9 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login-process', [LoginController::class, 'loginProcess'])->name('login-process');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register-process', [LoginController::class, 'registerProcess'])->name('register-process');
+
 Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function(){
     Route::get('/dashboard', function(){
         $totalLaporan = Report::count();
