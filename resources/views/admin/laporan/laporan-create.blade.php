@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card shadow mb-4">
-                    <form action="{{ route('laporan.store') }}" method="POST" enctype="multipart/form-data" class="p-3">
+                    <form action="{{ route('admin.laporan.store') }}" method="POST" enctype="multipart/form-data" class="p-3">
                         @csrf
             
                         <div class="mb-3">

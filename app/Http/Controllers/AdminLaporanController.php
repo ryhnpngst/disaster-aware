@@ -40,7 +40,7 @@ class AdminLaporanController extends Controller
             'content' => $request->content,
         ]);
 
-        return redirect()->route('laporan.index')->with(['success' => 'Laporan Berhasil Dibuat!']);
+        return redirect()->route('admin.laporan.index')->with(['success' => 'Laporan Berhasil Dibuat!']);
     }
 
     public function show(string $id): View
@@ -85,7 +85,7 @@ class AdminLaporanController extends Controller
             ]);
         }
 
-        return redirect()->route('laporan.index')->with(['success' => 'Laporan Berhasil Diupdate!']);
+        return redirect()->route('admin.laporan.index')->with(['success' => 'Laporan Berhasil Diupdate!']);
     }
 
     public function destroy($id): RedirectResponse
@@ -94,7 +94,7 @@ class AdminLaporanController extends Controller
         Storage::delete('public/laporan/' . $report->image);
         $report->delete();
 
-        return redirect()->route('laporan.index')->with(['success' => 'Laporan Berhasil Dihapus!']);
+        return redirect()->route('admin.laporan.index')->with(['success' => 'Laporan Berhasil Dihapus!']);
     }
 
     public function validasi(Report $laporan)
@@ -103,7 +103,7 @@ class AdminLaporanController extends Controller
         $laporan->status = 'sedang diproses';
         $laporan->save();
 
-        return redirect()->route('laporan.index')->with(['success' => 'Laporan Berhasil Divalidasi!']);
+        return redirect()->route('admin.laporan.index')->with(['success' => 'Laporan Berhasil Divalidasi!']);
     }
 
     public function selesai(Report $laporan)
@@ -111,6 +111,6 @@ class AdminLaporanController extends Controller
         $laporan->status = 'selesai diproses';
         $laporan->save();
 
-        return redirect()->route('laporan.index')->with(['success' => 'Laporan Berhasil Diselesaikan!']);
+        return redirect()->route('admin.laporan.index')->with(['success' => 'Laporan Berhasil Diselesaikan!']);
     }
 }

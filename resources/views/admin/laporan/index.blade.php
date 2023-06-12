@@ -10,17 +10,11 @@
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
-
-        @if (session('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success')  }}
-            </div>
-        @endif
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Daftar Laporan</h1>
 
         <!-- Add Button -->
-        <a href="{{ route('laporan.create') }}" class="btn btn-primary mb-4">
+        <a href="{{ route('admin.laporan.create') }}" class="btn btn-primary mb-4">
             <span class="text">Tambah Data</span>
         </a>
 
@@ -57,10 +51,10 @@
                                     </td>
                                     <td>{{ $report->status }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('laporan.show', $report->id) }}" class="p-3">
+                                        <a href="{{ route('admin.laporan.show', $report->id) }}" class="p-3">
                                             <i class="fas fa-eye" style="color: #2E59D9"></i>
                                         </a>
-                                        <a href="{{ route('laporan.edit', $report->id) }}" class="p-3">
+                                        <a href="{{ route('admin.laporan.edit', $report->id) }}" class="p-3">
                                             <i class="fas fa-edit" style="color: #F4B619;"></i>
                                         </a>
                                         <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus"></button>
@@ -82,7 +76,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                    <form action="{{ route('laporan.destroy', $report->id) }}" method="POST">
+                                                    <form action="{{ route('admin.laporan.destroy', $report->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Ya</button>

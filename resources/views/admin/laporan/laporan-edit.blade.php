@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-8">
                 <div class="card shadow mb-4">
-                    <form action="{{ route('laporan.update', $report->id) }}" method="POST" enctype="multipart/form-data" class="p-3">
+                    <form action="{{ route('admin.laporan.update', $report->id) }}" method="POST" enctype="multipart/form-data" class="p-3">
                         @csrf
                         @method('PUT')
             
@@ -98,7 +98,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <form action="{{ route('laporan.validasi', $report->id) }}" method="POST">
+                    <form action="{{ route('admin.laporan.validasi', $report->id) }}" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-danger">Ya</button>
                     </form>
@@ -123,7 +123,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <form action="{{ route('laporan.selesai', $report->id) }}" method="POST" class="mt-2">
+                    <form action="{{ route('admin.laporan.selesai', $report->id) }}" method="POST" class="mt-2">
                         @csrf
                         <button type="submit" class="btn btn-danger">Ya</button>
                     </form>

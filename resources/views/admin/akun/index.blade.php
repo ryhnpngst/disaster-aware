@@ -1,60 +1,40 @@
 @extends('admin.template')
 
-@section('additional_styles')
-    <!-- Custom styles for this page -->
-    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-@endsection
-
-@section('title', 'Artikel')
+@section('title', 'Daftar Akun')
 
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
-        @if (session('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success')  }}
-            </div>
-        @endif
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Daftar Artikel</h1>
+        <h1 class="h3 mb-0 text-gray-800">Daftar Akun</h1>
 
         <!-- Add Button -->
-        <a href="{{ route('artikel.create') }}" class="btn btn-primary mb-4">
+        <a href="#" class="btn btn-primary mb-4">
             <span class="text">Tambah Data</span>
         </a>
-
+        
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Daftar Artikel</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Daftar Akun</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th class="text-center">Judul Artikel</th>
-                                <th class="text-center">Gambar</th>
-                                <th class="text-center">Author</th>
+                                <th class="text-center">Nama</th>
+                                <th class="text-center">Email</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($artikels as $artikel)
+                            @forelse ($users as $user)
                                 <tr>
-                                    <td>{{ $artikel->title }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
                                     <td class="text-center">
-                                        <img src="{{ asset('/storage/artikel/'.$artikel->image) }}" alt="" width="100px">
-                                    </td>
-                                    <td>{{ $artikel->author }}</td>
-                                    <td class="text-center">
-                                        <a href="{{ route('artikel.show', $artikel->id) }}" class="p-3">
-                                            <i class="fas fa-eye" style="color: #2E59D9"></i>
-                                        </a>
-                                        <a href="{{ route('artikel.edit', $artikel->id) }}" class="p-3">
-                                            <i class="fas fa-edit" style="color: #F4B619;"></i>
-                                        </a>
                                         <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus"></button>
                                     </td>
                                 </tr>
@@ -70,11 +50,11 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    Apakah Anda yakin ingin menghapus artikel ini?
+                                                    Apakah Anda yakin ingin menghapus akun ini?
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                    <form action="{{ route('artikel.destroy', $artikel->id) }}" method="POST">
+                                                    <form action="#" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Ya</button>
@@ -86,7 +66,7 @@
 
                             @empty
                                 <div class="alert alert-danger">
-                                    Data Artikel Belum Tersedia!
+                                    Data Akun Belum Tersedia!
                                 </div>
                             @endforelse
                         </tbody>
@@ -94,7 +74,8 @@
                 </div>
             </div>
         </div>
-
+        
+        
     </div>
     <!-- /.container-fluid -->
 @endsection

@@ -32,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.index') }}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.admin.dashboard') }}">
                 <div class="sidebar-brand-text mx-3">Disaster Aware</div>
             </a>
 
@@ -41,7 +41,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('admin.index') }}">
+                <a class="nav-link" href="{{ route('admin.admin.dashboard') }}">
                     <i class="fas fa-fw fa-home" style="color: #ffffff;"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -56,7 +56,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ route('admin.akun.index') }}">
                     <i class="fas fa-fw fa-user" style="color: #ffffff;"></i>
                     <span>Daftar Akun</span></a>
             </li>
@@ -71,21 +71,21 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('laporan.index') }}">
+                <a class="nav-link" href="{{ route('admin.laporan.index') }}">
                     <i class="fas fa-fw fa-exclamation-triangle" style="color: #ffffff;"></i>
                     <span>Laporan</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('artikel.index') }}">
+                <a class="nav-link" href="{{ route('admin.artikel.index') }}">
                     <i class="fas fa-th-list" style="color: #ffffff;"></i>
                     <span>Artikel</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('galeri.index') }}">
+                <a class="nav-link" href="{{ route('admin.galeri.index') }}">
                     <i class="fas fa-fw fa-camera" style="color: #ffffff;"></i>
                     <span>Galeri</span></a>
             </li>
@@ -127,7 +127,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -179,7 +179,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
                 </div>
             </div>
         </div>
@@ -194,6 +194,18 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if($message = Session::get('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: '{{ $message }}',
+            })
+        </script>
+    @endif
 
     @yield('additional_scripts')
 
