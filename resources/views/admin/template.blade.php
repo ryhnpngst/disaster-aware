@@ -197,6 +197,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    @if($message = Session::get('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ $message }}',
+            })
+        </script>
+    @endif
+
     @if($message = Session::get('success'))
         <script>
             Swal.fire({
