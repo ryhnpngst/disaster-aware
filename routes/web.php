@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminLaporanController;
+use App\Http\Controllers\LoginController;
 use App\Models\Report;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+
 Route::get('/admin/dashboard', function(){
     $totalLaporan = Report::count();
     $totalLaporanSelesai = Report::where('status', 'selesai diproses')->count();
