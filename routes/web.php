@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminLaporanController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LoginController;
 use App\Models\Report;
 use Illuminate\Support\Facades\Route;
@@ -54,3 +56,9 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function(){
     
     Route::resource('/akun', \App\Http\Controllers\AdminAkunController::class);
 });
+
+Route::get('/edukasi', [EducationController::class, 'index'])->name('index');
+
+Route::get('/detail', [EducationController::class, 'detail'])->name('detail');
+
+Route::get('/galeri', [GalleryController::class, 'index'])->name('galeri');
