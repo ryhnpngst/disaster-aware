@@ -57,8 +57,6 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function(){
     Route::resource('/akun', \App\Http\Controllers\AdminAkunController::class);
 });
 
-Route::get('/edukasi', [EducationController::class, 'index'])->name('index');
-
-Route::get('/detail', [EducationController::class, 'detail'])->name('detail');
+Route::resource('/edukasi', \App\Http\Controllers\EducationController::class);
 
 Route::get('/galeri', [GalleryController::class, 'index'])->name('galeri');

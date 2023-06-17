@@ -27,8 +27,10 @@ class AdminArtikelController extends Controller
         $this->validate($request, [
             'title' => 'required|min:5',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:20480',
+            'location' => 'required|min:5',
             'author' => 'required|min:10',
             'caption' => 'required|min:10',
+            'description' => 'required|min:10',
         ]);
 
         $image = $request->file('image');
@@ -37,8 +39,10 @@ class AdminArtikelController extends Controller
         Artikel::create([
             'title' => $request->title,
             'image' => $image->hashName(),
+            'location' => $request->location,
             'author' => $request->author,
             'caption' => $request->caption,
+            'content' => $request->description,
         ]);
 
         return redirect()->route('admin.artikel.index')->with(['success' => 'Artikel Berhasil Dibuat!']);
@@ -63,8 +67,10 @@ class AdminArtikelController extends Controller
         $this->validate($request, [
             'title' => 'required|min:5',
             'image' => 'image|mimes:jpeg,png,jpg|max:20480',
+            'location' => 'required|min:5',
             'author' => 'required|min:10',
             'caption' => 'required|min:10',
+            'description' => 'required|min:10',
         ]);
 
         $artikel = Artikel::findOrFail($id);
@@ -78,14 +84,18 @@ class AdminArtikelController extends Controller
             $artikel->update([
                 'title' => $request->title,
                 'image' => $image->hashName(),
+                'location' => $request->location,
                 'author' => $request->author,
                 'caption' => $request->caption,
+                'description' => $request->description,
             ]);
         } else {
             $artikel->update([
                 'title' => $request->title,
+                'location' => $request->location,
                 'author' => $request->author,
                 'caption' => $request->caption,
+                'description' => $request->description,
             ]);
         }
 

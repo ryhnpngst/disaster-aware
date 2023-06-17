@@ -12,7 +12,9 @@ class Artikel extends Model
     protected $fillable = [
         'title',
         'author',
+        'location',
         'image',
-        'caption'
+        'caption',
+        'content',
     ];
 }

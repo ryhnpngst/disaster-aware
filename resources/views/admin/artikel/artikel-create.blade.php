@@ -21,34 +21,58 @@
                                 {{ $message }}
                             </div>
                         @enderror
+
                         </div>  
                         <div class="mb-3">
                           <label for="title" class="form-label">Judul Artikel</label>
-                          <input type="text" class="form-control" id="title" name="title">
+                          <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
                         </div>
                         @error('title')
                             <div class="alert alert-danger mt-2">
                                 {{ $message }}
                             </div>
                         @enderror
+
                         <div class="mb-3">
                             <label for="author" class="form-label">Author</label>
-                            <input type="text" class="form-control" id="author" name="author">
+                            <input type="text" class="form-control" id="author" name="author" value="{{ old('author') }}">
                           </div>
                           @error('author')
                               <div class="alert alert-danger mt-2">
                                   {{ $message }}
                               </div>
                           @enderror
+
                         <div class="mb-3">
-                            <label for="caption" class="form-label">Content Artikel</label>
-                            <textarea class="form-control" id="caption" rows="3" name="caption"></textarea>
-                          </div>
-                          @error('caption')
+                            <label for="location" class="form-label">Lokasi</label>
+                            <input type="text" class="form-control" id="location" name="location" value="{{ old('location') }}">
+                        </div>
+                        @error('location')
                             <div class="alert alert-danger mt-2">
                                 {{ $message }}
                             </div>
                         @enderror
+
+                        <div class="mb-3">
+                            <label for="caption" class="form-label">Caption</label>
+                            <input type="text" class="form-control" id="caption" name="caption" value="{{ old('caption') }}">
+                        </div>
+                        @error('caption')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Content Artikel</label>
+                            <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                        </div>
+                          @error('description')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#konfirmasiModalSimpan">Simpan</button>
                         <button type="reset" class="btn btn-warning">Reset</button>
 
@@ -82,6 +106,6 @@
 @section('additional_scripts')
     <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace( 'caption' );
+        CKEDITOR.replace( 'description' );
     </script>
 @endsection
