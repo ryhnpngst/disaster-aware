@@ -1,0 +1,59 @@
+.container-aspiration {
+    background: #161516;
+    border-radius: 80px;
+    display: flex;
+    align-items: center;
+    width: 1230px;
+    height: 90%;
+    padding: 20px;
+    margin: 20px;
+}
+
+.container-form {
+    flex: 1;
+    padding: 20px;
+    margin: 20px;
+}
+
+.container-form h1 {
+    font-size: 21px;
+    
+}
+
+.container-form p {
+    font-size: 12px;
+}
+
+.container-form .mb-3 {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-form .mb-3 label {
+    margin-bottom: 10px;
+    font-size: 15.4px;
+    line-height: 150%;
+    letter-spacing: 0.015em;
+}
+
+.container-form input[type="text"],
+.container-form input[type="file"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.image-container {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
