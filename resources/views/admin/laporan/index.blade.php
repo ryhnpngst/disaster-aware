@@ -54,10 +54,11 @@
                                         <a href="{{ route('admin.laporan.show', $report->id) }}" class="p-3">
                                             <i class="fas fa-eye" style="color: #2E59D9"></i>
                                         </a>
-                                        <a href="{{ route('admin.laporan.edit', $report->id) }}" class="p-3">
-                                            <i class="fas fa-edit" style="color: #F4B619;"></i>
-                                        </a>
-                                        <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus"></button>
+                                        <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus"
+                                            @if ($report->status !== 'Selesai Diproses')
+                                                disabled
+                                            @endif
+                                        ></button>
                                     </td>
                                 </tr>
 

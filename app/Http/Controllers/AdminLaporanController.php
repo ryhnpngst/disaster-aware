@@ -50,44 +50,6 @@ class AdminLaporanController extends Controller
         return view('admin.laporan.laporan-show', compact('report'));
     }
 
-    public function edit(string $id): View
-    {
-        $report = Report::findOrFail($id);
-
-        return view('admin.laporan.laporan-edit', compact('report'));
-    } 
-
-    public function update(Request $request, $id): RedirectResponse
-    {
-        $this->validate($request, [
-            'title' => 'required|min:5',
-            'image' => 'image|mimes:jpeg,png,jpg|max:20480',
-            'content' => 'required|min:10',
-        ]);
-
-        $report = Report::findOrFail($id);
-
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $image->storeAs('public/laporan', $image->hashName());
-
-            Storage::delete('public/laporan/' . $report->image);
-
-            $report->update([
-                'title' => $request->title,
-                'image' => $image->hashName(),
-                'content' => $request->content,
-            ]);
-        } else {
-            $report->update([
-                'title' => $request->title,
-                'content' => $request->content,
-            ]);
-        }
-
-        return redirect()->route('admin.laporan.index')->with(['success' => 'Laporan Berhasil Diupdate!']);
-    }
-
     public function destroy($id): RedirectResponse
     {
         $report = Report::findOrFail($id);
