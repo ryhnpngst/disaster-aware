@@ -79,7 +79,6 @@
                         </div>
                     </div>
                 @empty
-                    <p>Belum Ada Galeri</p>
                 @endforelse
 
             </div>

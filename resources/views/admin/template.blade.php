@@ -10,6 +10,8 @@
     <meta name="author" content="">
 
     <title>@yield('title')</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/Frame.png') }}"/>
+
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -33,7 +35,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.admin.dashboard') }}">
-                <div class="sidebar-brand-text mx-3">Disaster Aware</div>
+                <img src="{{ asset('assets/Frame.png') }}" alt="">
+                <div class="sidebar-brand-text mx-3">Disaster Awareness</div>
             </a>
 
             <!-- Divider -->
@@ -41,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('admin.admin.dashboard') }}">
+                <a class="nav-link{{ request()->routeIs('admin.admin.dashboard') ? ' active' : '' }}" href="{{ route('admin.admin.dashboard') }}">
                     <i class="fas fa-fw fa-home" style="color: #ffffff;"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -56,7 +59,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.akun.index') }}">
+                <a class="nav-link{{ request()->routeIs('admin.akun.index') ? ' active' : '' }}" href="{{ route('admin.akun.index') }}">
                     <i class="fas fa-fw fa-user" style="color: #ffffff;"></i>
                     <span>Daftar Akun</span></a>
             </li>
@@ -71,21 +74,21 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.laporan.index') }}">
+                <a class="nav-link{{ request()->routeIs('admin.laporan.index') ? ' active' : '' }}" href="{{ route('admin.laporan.index') }}">
                     <i class="fas fa-fw fa-exclamation-triangle" style="color: #ffffff;"></i>
                     <span>Laporan</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.artikel.index') }}">
+                <a class="nav-link{{ request()->routeIs('admin.artikel.index') ? ' active' : '' }}" href="{{ route('admin.artikel.index') }}">
                     <i class="fas fa-th-list" style="color: #ffffff;"></i>
                     <span>Artikel</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.galeri.index') }}">
+                <a class="nav-link{{ request()->routeIs('admin.galeri.index') ? ' active' : '' }}" href="{{ route('admin.galeri.index') }}">
                     <i class="fas fa-fw fa-camera" style="color: #ffffff;"></i>
                     <span>Galeri</span></a>
             </li>
@@ -148,7 +151,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Disaster Aware 2023</span>
+                        <span>Copyright &copy; Disaster Awareness 2023</span>
                     </div>
                 </div>
             </footer>
