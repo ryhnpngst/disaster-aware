@@ -6,6 +6,7 @@ use App\Models\Report;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Routing\Matcher\RedirectableUrlMatcherInterface;
 
@@ -23,29 +24,11 @@ class AdminLaporanController extends Controller
         return view('admin.laporan.laporan-create');
     }
 
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'title' => 'required|min:5',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:20480',
-            'content' => 'required|min:10',
-        ]);
-
-        $image = $request->file('image');
-        $image->storeAs('public/laporan', $image->hashName());
-
-        Report::create([
-            'title' => $request->title,
-            'image' => $image->hashName(),
-            'content' => $request->content,
-        ]);
-
-        return redirect()->route('admin.laporan.index')->with(['success' => 'Laporan Berhasil Dibuat!']);
-    }
-
     public function show(string $id): View
     {
         $report = Report::findOrFail($id);
+
+        Session::forget('success');
 
         return view('admin.laporan.laporan-show', compact('report'));
     }
@@ -65,6 +48,8 @@ class AdminLaporanController extends Controller
         $laporan->status = 'sedang diproses';
         $laporan->save();
 
+        Session::forget('success');
+
         return redirect()->route('admin.laporan.index')->with(['success' => 'Laporan Berhasil Divalidasi!']);
     }
 
@@ -72,6 +57,8 @@ class AdminLaporanController extends Controller
     {
         $laporan->status = 'selesai diproses';
         $laporan->save();
+
+        Session::forget('success');
 
         return redirect()->route('admin.laporan.index')->with(['success' => 'Laporan Berhasil Diselesaikan!']);
     }

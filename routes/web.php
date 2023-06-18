@@ -62,3 +62,5 @@ Route::resource('/edukasi', \App\Http\Controllers\EducationController::class);
 Route::get('/galeri', [GalleryController::class, 'index'])->name('galeri');
 
 Route::resource('/', \App\Http\Controllers\HomeController::class);
+
+Route::resource('/laporan', \App\Http\Controllers\LaporanController::class);

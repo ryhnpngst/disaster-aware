@@ -13,11 +13,6 @@
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Daftar Laporan</h1>
 
-        <!-- Add Button -->
-        <a href="{{ route('admin.laporan.create') }}" class="btn btn-primary mb-4">
-            <span class="text">Tambah Data</span>
-        </a>
-
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">

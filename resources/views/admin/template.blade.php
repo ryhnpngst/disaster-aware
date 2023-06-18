@@ -218,6 +218,9 @@
                 text: '{{ $message }}',
             })
         </script>
+        @php
+            Session::forget('success');
+        @endphp
     @endif
 
     @yield('additional_scripts')

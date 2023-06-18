@@ -6,6 +6,7 @@ use App\Models\Galeri;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class AdminGaleriController extends Controller
@@ -38,6 +39,8 @@ class AdminGaleriController extends Controller
             'image' => $image->hashName(),
             'caption' => $request->caption,
         ]);
+
+        Session::forget('success');
 
         return redirect()->route('admin.galeri.index')->with(['success' => 'Galeri Berhasil Dibuat!']);
     }  
@@ -83,6 +86,8 @@ class AdminGaleriController extends Controller
                 'caption' => $request->caption,
             ]);
         }
+
+        Session::forget('success');
 
         return redirect()->route('admin.galeri.index')->with(['success' => 'Galeri Berhasil Diupdate!']);
     }

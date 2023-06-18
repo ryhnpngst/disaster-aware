@@ -6,6 +6,7 @@ use App\Models\Artikel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class AdminArtikelController extends Controller
@@ -44,6 +45,8 @@ class AdminArtikelController extends Controller
             'caption' => $request->caption,
             'content' => $request->description,
         ]);
+
+        Session::forget('success');
 
         return redirect()->route('admin.artikel.index')->with(['success' => 'Artikel Berhasil Dibuat!']);
     }
@@ -98,6 +101,8 @@ class AdminArtikelController extends Controller
                 'description' => $request->description,
             ]);
         }
+
+        Session::forget('success');
 
         return redirect()->route('admin.artikel.index')->with(['success' => 'Artikel Berhasil Diupdate!']);
     }
