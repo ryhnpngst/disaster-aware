@@ -49,12 +49,12 @@
                                         <a href="{{ route('admin.galeri.edit', $galeri->id) }}" class="p-3">
                                             <i class="fas fa-edit" style="color: #F4B619;"></i>
                                         </a>
-                                        <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus"></button>
+                                        <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus-{{ $galeri->id }}"></button>
                                     </td>
                                 </tr>
 
                                     <!-- Modal Konfirmasi Hapus -->
-                                    <div class="modal fade" id="konfirmasiModalHapus" tabindex="-1" role="dialog" aria-labelledby="konfirmasiModalHapusLabel" aria-hidden="true">
+                                    <div class="modal fade" id="konfirmasiModalHapus-{{ $galeri->id }}" tabindex="-1" role="dialog" aria-labelledby="konfirmasiModalHapusLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">

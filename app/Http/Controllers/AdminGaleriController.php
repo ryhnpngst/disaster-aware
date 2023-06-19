@@ -13,7 +13,7 @@ class AdminGaleriController extends Controller
 {
     public function index(): View
     {
-        $galeris = Galeri::latest()->get();
+        $galeris = Galeri::get();
 
         return view('admin.galeri.index', compact('galeris'));
     }

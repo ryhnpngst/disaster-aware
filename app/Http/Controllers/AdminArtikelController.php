@@ -13,7 +13,7 @@ class AdminArtikelController extends Controller
 {
     public function index(): View
     {
-        $artikels = Artikel::latest()->get();
+        $artikels = Artikel::get();
 
         return view('admin.artikel.index', compact('artikels'));
     }

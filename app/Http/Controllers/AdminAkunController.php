@@ -12,7 +12,7 @@ class AdminAkunController extends Controller
 {
     public function index(): View
     {
-        $users = User::latest()->get();
+        $users = User::get();
 
         return view('admin.akun.index', compact('users'));
     }

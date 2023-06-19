@@ -14,7 +14,7 @@ class AdminLaporanController extends Controller
 {
     public function index(): View
     {
-        $reports = Report::latest()->get();
+        $reports = Report::get();
 
         return view('admin.laporan.index', compact('reports'));
     }

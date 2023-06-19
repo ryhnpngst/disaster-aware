@@ -201,7 +201,7 @@
               yang memperoleh kesempatan untuk mengaspirasikannya.
               Pastikan anda adalah salah satunya!"</p>
             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-              <a class="btn btn-outline-light btn-lg px-4" href="#!">Tunjukan aspirasimu</a>
+              <a class="btn btn-outline-light btn-lg px-4" href="{{ route('laporan.index') }}">Tunjukan aspirasimu</a>
             </div>
           </div>
         </div>
