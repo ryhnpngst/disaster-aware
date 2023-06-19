@@ -31,7 +31,7 @@
                                     <td>{{ $user->email }}</td>
                                     <td class="text-center">
                                         @if(Auth::user()->role === 'admin')
-                                            <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus"></button>
+                                            <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus-{{ $user->id }}"></button>
                                         @else
                                             <button type="button" class="fas fa-trash-alt" style="color: #E02D1B; border: none; background: none;" data-toggle="modal" data-target="#konfirmasiModalHapus" disabled></button>
                                         @endif
@@ -39,7 +39,7 @@
                                 </tr>
 
                                     <!-- Modal Konfirmasi Hapus -->
-                                    <div class="modal fade" id="konfirmasiModalHapus" tabindex="-1" role="dialog" aria-labelledby="konfirmasiModalHapusLabel" aria-hidden="true">
+                                    <div class="modal fade" id="konfirmasiModalHapus-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="konfirmasiModalHapusLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
