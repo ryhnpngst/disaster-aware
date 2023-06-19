@@ -37,7 +37,7 @@
                 <!-- Blog post-->
                 <div class="card mb-4">
                   <a href="#!"><img class="card-img-top" src="{{ asset('/storage/artikel/'.$artikel->image) }}"
-                      alt="..." /></a>
+                      alt="{{ $artikel->title }}" /></a>
                   <div class="card-body">
                     <div class="small text-muted">{{ $artikel->created_at->format('d F Y'); }}</div>
                     <h2 class="card-title h4">{{ $artikel->title }}</h2>
@@ -134,13 +134,13 @@
               <!-- Row -->
               <div class="row">
                 <div class="col-md-12">
-                  <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t1.jpg" alt="wrapkit"
+                  <img src="{{ asset('assets/fiersa.jpg') }}" alt="Fiersa Besari"
                     class="img-fluid" />
                 </div>
                 <div class="col-md-12">
                   <div class="pt-2">
-                    <h5 class="mt-4 font-weight-medium mb-0">Satrio Wicaksono</h5>
-                    <h6 class="subtitle">Reviewer Aspirasi</h6>
+                    <h5 class="mt-4 font-weight-medium mb-0">Fiersa Besari</h5>
+                    <h6 class="subtitle">Content Creator</h6>
                   </div>
                 </div>
               </div>
@@ -152,13 +152,13 @@
               <!-- Row -->
               <div class="row">
                 <div class="col-md-12 pro-pic">
-                  <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t2.jpg" alt="wrapkit"
+                  <img src="{{ asset('assets/pandawara.jpg') }}" alt="Pandawara Group"
                     class="img-fluid" />
                 </div>
                 <div class="col-md-12">
                   <div class="pt-2">
-                    <h5 class="mt-4 font-weight-medium mb-0">Laode Fardhan</h5>
-                    <h6 class="subtitle">Editor Artikel</h6>
+                    <h5 class="mt-4 font-weight-medium mb-0">Pandawara Group</h5>
+                    <h6 class="subtitle">Pegiat Bersih-Bersih Sampah</h6>
                   </div>
                 </div>
               </div>
@@ -170,13 +170,13 @@
               <!-- Row -->
               <div class="row">
                 <div class="col-md-12 pro-pic">
-                  <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/team/t3.jpg" alt="wrapkit"
+                  <img src="{{ asset('assets/dzawin.jpg') }}" alt="Dzawin Nur"
                     class="img-fluid" />
                 </div>
                 <div class="col-md-12">
                   <div class="pt-2">
-                    <h5 class="mt-4 font-weight-medium mb-0">Odi Parody</h5>
-                    <h6 class="subtitle">Fotographer & Videographer</h6>
+                    <h5 class="mt-4 font-weight-medium mb-0">Dzawin Nur</h5>
+                    <h6 class="subtitle">Suka Sama Alam</h6>
                   </div>
                 </div>
               </div>
@@ -201,7 +201,7 @@
               yang memperoleh kesempatan untuk mengaspirasikannya.
               Pastikan anda adalah salah satunya!"</p>
             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-              <a class="btn btn-outline-light btn-lg px-4" href="{{ route('laporan.index') }}">Tunjukan aspirasimu</a>
+              <a class="btn btn-outline-light btn-lg px-4" href="{{ route('laporan.index') }}">Tunjukan Aspirasimu</a>
             </div>
           </div>
         </div>
