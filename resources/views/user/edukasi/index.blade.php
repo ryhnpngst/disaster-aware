@@ -70,9 +70,9 @@
         </div>
         <!-- Content Row-->
 
-        @if ($artikels)
-            @foreach ($artikels as $artikel)
-                <div class="row gx-4 gx-lg-5">
+        <div class="row gx-4 gx-lg-5">
+            @if ($artikels)
+                @foreach ($artikels as $artikel)
                     <div class="col-md-4 mb-5">
                         <div class="card h-100">
                             <!--image-->
@@ -84,9 +84,9 @@
                             <div class="card-footer"><a class="btn btn-primary btn-sm" href="{{ route('edukasi.show', $artikel->id) }}">Lanjut Baca</a></div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-        @endif
+                @endforeach
+            @endif
+        </div>
 
     </div>
     
